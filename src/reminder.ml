@@ -6,7 +6,6 @@ open Async.Std
    1. First notification should occur a couple of weeks prior to event
    date. Then notifications should increase as the event draws nearer. I.e. one
    per day 3 days prior to event-date.
-   2. Better output-message that includes date of event.
    X. Send notification via email or text...
    X+1. Support for other types of events... *)
 
@@ -51,7 +50,11 @@ let to_pretty_string t =
   match t.event with
   | Event.Bday ->
     let today = Date.today ~zone:Core.Zone.local |> Date.year in
-    sprintf "%s: Turns %d years, today!" t.msg (today-(Date.year t.date))
+    sprintf "\n %s\n Turns %d on %s %d! Born in %d"
+      t.msg
+      (today-(Date.year t.date))
+      (t.date |> Date.month |> Month.to_string) (t.date |> Date.day)
+      (t.date |> Date.year)
 
 let run csv_file () =
   (* Parse dates and output any date that is the same as today's date. *)
