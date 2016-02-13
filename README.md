@@ -6,3 +6,8 @@ OCaml script to remind me of stuff (currently only birthdays).
 A naive but working example is the following:
 ```0 9 * * *
      ./<path-to_reminders>/reminder.native bday.csv 2> birthday_reminders.log ```
+
+* TODO:
+  - For code changes and add-ons see: reminder.ml
+  - Use omake instead of make.
+  - TBD.

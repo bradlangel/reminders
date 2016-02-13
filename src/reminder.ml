@@ -1,6 +1,16 @@
 open Core.Std
 open Async.Std
 
+(* TODO:
+   Things to add:
+   1. First notification should occur a couple of weeks prior to event
+   date. Then notifications should increase as the event draws nearer. I.e. one
+   per day 3 days prior to event-date.
+   2. Better output-message that includes date of event.
+   3. Do not use Csv.x throughout code; separate by creating record of row.
+   X. Send notification via email or text...
+   X+1. Support for other types of events... *)
+
 module Event = struct
   type t = | Bday
   let to_string t = function | Bday -> "Birthday"
