@@ -46,6 +46,5 @@ let run csv_file () =
 
 let () =
   let spec = Command.Spec.( empty +> anon ("<csv-file-of-events>" %: string)) in
-  Command.async_basic
-    ~summary:"Reminders script" spec run
+  Command.async_basic ~summary:"Reminders script" spec run
   |> Command.run
