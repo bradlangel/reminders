@@ -1,0 +1,9 @@
+true: thread, bin_annot
+true: package(async), package(core), package(csv)
+
+<src>: include
+
+".git": -traverse
+
+# Ignore atdgen's warnings
+<*_j.ml>: no_warn_unused_value
